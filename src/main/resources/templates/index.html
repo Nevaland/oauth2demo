@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>OAuth2 Demo</title>
+</head>
+<body>
+    <div class="container unauthenticated">
+        <a href="/oauth2/authorization/kakao">카카오 로그인</a>
+    </div>
+    <div class="container authenticated" style="display:none">
+        User: <span id="user"></span>
+    </div>
+
+    <script type="text/javascript"
+            src="https://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+    <script type="text/javascript">
+        $.get("/user", function(data) {
+            if(data != "") {
+                $("#user").html(data.principal.kakao_account.profile.nickname);
+                $(".unauthenticated").hide()
+                $(".authenticated").show()
+            }
+        });
+    </script>
+</body>
+</html>
