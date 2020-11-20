@@ -1,20 +1,22 @@
 package nevaland.oauth2demo.controller;
 
-import nevaland.oauth2demo.oauth2.KakaoOAuth2User;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.Optional;
-
-@RestController
+@Controller
 public class UserController {
 
-    @RequestMapping("/user")
-    public String user(@AuthenticationPrincipal KakaoOAuth2User kakaoOAuth2User) {
-        return Optional.ofNullable(kakaoOAuth2User)
-                       .map(KakaoOAuth2User::getName)
-                       .orElse(null);
+    @GetMapping("/user/new")
+    public String newUser() {
+        return "setNicknameForm";
+    }
+
+    @PostMapping("/user/new")
+    public String registerUser(@RequestParam(value = "nickname") String nickname) {
+        System.out.println(nickname);
+        return "redirect:/index";
     }
 
 }
