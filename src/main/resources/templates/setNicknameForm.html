@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>OAuth2 Demo</title>
+</head>
+<body>
+    <form action="/user/new" method="post">
+        <label for="nickname">닉네임</label>
+        <input type="text" id="nickname" name="nickname" placeholder="닉네임을 입력하세요">
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+        <input type="submit" value="등록">
+    </form>
+</body>
+</html>
