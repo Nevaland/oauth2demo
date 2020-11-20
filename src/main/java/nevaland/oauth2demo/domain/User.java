@@ -1,5 +1,8 @@
 package nevaland.oauth2demo.domain;
 
+import lombok.AllArgsConstructor;
+
+@AllArgsConstructor
 public class User {
     private Long id;
     private String name;
