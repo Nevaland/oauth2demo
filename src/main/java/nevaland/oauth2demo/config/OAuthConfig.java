@@ -1,5 +1,6 @@
-package nevaland.oauth2demo.oauth2;
+package nevaland.oauth2demo.config;
 
+import nevaland.oauth2demo.oauth2.KakaoOAuth2User;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -18,6 +19,16 @@ public class OAuthConfig extends WebSecurityConfigurerAdapter {
             .logout()
             .logoutRequestMatcher(new AntPathRequestMatcher("/user/logout"))
             .logoutSuccessUrl("/")
-            .invalidateHttpSession(true);
+            .invalidateHttpSession(true)
+//        .and()
+//            .rememberMe()
+//                .key("myAppKey")
+//                .rememberMeParameter("remember-me")
+//                .tokenValiditySeconds(86400) // 1 day
+//                .tokenRepository(persistentTokenRepository());
+            .and()
+                .exceptionHandling().accessDeniedPage("/");
+
     }
+
 }
