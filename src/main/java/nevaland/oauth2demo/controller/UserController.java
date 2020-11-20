@@ -5,12 +5,16 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Optional;
+
 @RestController
 public class UserController {
 
     @RequestMapping("/user")
     public String user(@AuthenticationPrincipal KakaoOAuth2User kakaoOAuth2User) {
-        return kakaoOAuth2User.getName();
+        return Optional.ofNullable(kakaoOAuth2User)
+                       .map(KakaoOAuth2User::getName)
+                       .orElse(null);
     }
 
 }
