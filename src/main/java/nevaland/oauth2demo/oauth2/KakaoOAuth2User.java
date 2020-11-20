@@ -16,15 +16,13 @@ public class KakaoOAuth2User implements OAuth2User {
 
     private List<GrantedAuthority> authorities = AuthorityUtils.createAuthorityList("ROLE_USER");
     private String id;
-    @JsonProperty("kakao_account")
-    private Map<String, Object> kakaoAccount;
-    private Map<String, Object> properties;
+//    @JsonProperty("kakao_account")
+//    private Map<String, Object> kakaoAccount;
 
     @Override
     public Map<String, Object> getAttributes() {
         Map<String, Object> attributes = new HashMap<>();
-        attributes.putAll(kakaoAccount);
-        attributes.putAll(properties);
+//        attributes.putAll(kakaoAccount);
         return attributes;
     }
 

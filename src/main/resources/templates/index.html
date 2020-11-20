@@ -17,7 +17,7 @@
     <script type="text/javascript">
         $.get("/user", function(data) {
             if(data != "") {
-                $("#user").html(data.kakao_account.profile.nickname);
+                $("#user").html(data.id);
                 $(".unauthenticated").hide()
                 $(".authenticated").show()
             }
