@@ -9,7 +9,7 @@
         <a href="/oauth2/authorization/kakao">카카오 로그인</a>
     </div>
     <div th:if="${nickname}" class="container authenticated">
-        User: <span id="user" th:text="${userId}"></span>
+        User: <span id="user" th:text="${nickname}"></span>
         <a href="/user/logout">로그아웃</a>
     </div>
 </body>
