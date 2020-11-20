@@ -17,7 +17,7 @@
     <script type="text/javascript">
         $.get("/user", function(data) {
             if(data != "") {
-                $("#user").html(data.id);
+                $("#user").html(data);
                 $(".unauthenticated").hide()
                 $(".authenticated").show()
             }

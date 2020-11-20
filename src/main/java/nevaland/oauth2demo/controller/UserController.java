@@ -9,9 +9,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
 
     @RequestMapping("/user")
-    public KakaoOAuth2User user(@AuthenticationPrincipal KakaoOAuth2User kakaoOAuth2User) {
-        System.out.println(kakaoOAuth2User);
-        return kakaoOAuth2User;
+    public String user(@AuthenticationPrincipal KakaoOAuth2User kakaoOAuth2User) {
+        return kakaoOAuth2User.getName();
     }
 
 }
